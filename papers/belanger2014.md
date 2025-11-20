@@ -42,8 +42,8 @@ Linear-mixed effects models run with lme4 in R
 I use the MATLAB notation a * b * c := 1 + a + b + c + a * b + a * c + b * c + a * b * c
 
 They runned the following pipeline for n = [1, 2, 5]
-1. compute y_n ~ pred * freq * group + (pred * freq * group | participant * trial)
-2. compute y_n ~ pred * freq * group + (1 | participant * trial)
+1. compute y_n ~ pred * freq * group + (pred * freq * group | participant) + (pred * freq * group | trial)
+2. compute y_n ~ pred * freq * group + (1 | participant) + (1 | trial)
 3. compare log-likelihood of the models, use the model with random intercept if its log-likelihood is nor smaller
 4. list all non-significant interactions, remove them one by one and rerun the model without it, keep the simpler model if its log-likelihood is nor smaller
 
